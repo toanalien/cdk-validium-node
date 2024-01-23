@@ -1,4 +1,4 @@
-DOCKERCOMPOSE := docker-compose -f docker-compose.yml
+DOCKERCOMPOSE := docker compose -f docker-compose.yml
 DOCKERCOMPOSEAPPSEQ := zkevm-sequencer
 DOCKERCOMPOSEAPPSEQSENDER := zkevm-sequence-sender
 DOCKERCOMPOSEAPPL2GASP := zkevm-l2gaspricer
@@ -86,8 +86,8 @@ STOPMETRICS := $(DOCKERCOMPOSE) stop $(DOCKERCOMPOSEMETRICS) && $(DOCKERCOMPOSE)
 
 STOP := $(DOCKERCOMPOSE) down --remove-orphans
 
-RUNDACDB := docker-compose up -d zkevm-data-node-db
-STOPDACDB := docker-compose stop zkevm-data-node-db && docker-compose rm -f zkevm-data-node-db
+RUNDACDB := docker compose up -d zkevm-data-node-db
+STOPDACDB := docker compose stop zkevm-data-node-db && docker compose rm -f zkevm-data-node-db
 
 .PHONY: test-full-non-e2e
 test-full-non-e2e: stop ## Runs non-e2e tests checking race conditions
